@@ -22,12 +22,12 @@ int optimal_weight(int W, const vector<int>& w) {
     return value[W][w.size()];
 }
 
-int main() {
-  int n, W;
-  std::cin >> W >> n;
-  vector<int> w(n);
-  for (int i = 0; i < n; i++) {
-    std::cin >> w[i];
-  }
-  std::cout << optimal_weight(W, w) << '\n';
-}
+//int main() {
+//  int n, W;
+//  std::cin >> W >> n;
+//  vector<int> w(n);
+//  for (int i = 0; i < n; i++) {
+//    std::cin >> w[i];
+//  }
+//  std::cout << optimal_weight(W, w) << '\n';
+//}

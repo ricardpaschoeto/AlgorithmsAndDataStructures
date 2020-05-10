@@ -1,36 +1,49 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <numeric>
 
 using std::vector;
-using std::max;
-
-int optimal_sum(int K, const vector<int>& w) {
-    std::vector<std::vector<int> > value(K + 1, std::vector<int>(w.size() + 1, 0));
-    int k = w.size() / 3;
-    int val = 0;
-
-    for (size_t j = 1; j <= w.size(); ++j) {
-        for (size_t wind = 1; wind <= k; wind++)
-        {
-            if (w[j - 1] > wind)
-                value[wind][j] = value[wind][j - 1];
-            else
-                value[wind][j] = std::max(value[wind][j - 1], value[wind - w[j - 1]][j - 1] + w[j - 1]);
-        }
-        if (value[wind][j] != 0 && value[wind][j] % K == 0)
-            
-    }
-    return value[K][w.size()];
-}
 
 int partition3(vector<int> &A) {
-    if (A.size() == 3)
-        return 1;
+    
+    int n = A.size();
+    int sum = std::accumulate(A.begin(), A.end(), 0);
+
     if (A.size() < 3)
         return 0;
-    int res = optimal_sum(3, A);
-  return 0;
+    if (sum % 3 != 0)
+        return 0;
+
+    sum /= 3;
+
+    std::vector<std::vector<int> > dp(n, std::vector<int>(sum + 1, 0));
+    for (size_t i = 0; i < n; i++)
+    {
+        dp[i][0] = 0;
+    }
+
+    for (size_t s = 1; s <= sum; s++)
+    {
+        if (A[s] == 0)
+            dp[0][s] = 1;
+        else
+            dp[0][s] = 0;
+    }
+
+    for (size_t i = 1; i < n; i++){
+        for (size_t s = 1; s <= sum; s++)
+        {
+            if (dp[i - 1][s]) {
+                dp[i][s] = dp[i - 1][s];
+            }
+            else if (s >= A[i]) {
+                dp[i][s] = dp[i - 1][s - A[i]];
+            }
+        }
+    }
+
+    return dp[n-1][sum];
 }
 
 int main() {
