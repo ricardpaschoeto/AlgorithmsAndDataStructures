@@ -8,7 +8,12 @@ using std::vector;
 int partition3(vector<int> &A) {
     
     int n = A.size();
-    int sum = std::accumulate(A.begin(), A.end(), 0);
+    int sum = 0;
+
+    for (size_t i = 0; i < n; i++)
+    {
+        sum += A[i];
+    }
 
     if (A.size() < 3)
         return 0;
@@ -20,12 +25,12 @@ int partition3(vector<int> &A) {
     std::vector<std::vector<int> > dp(n, std::vector<int>(sum + 1, 0));
     for (size_t i = 0; i < n; i++)
     {
-        dp[i][0] = 0;
+        dp[i][0] = 1;
     }
 
     for (size_t s = 1; s <= sum; s++)
     {
-        if (A[s] == 0)
+        if (A[0] == s)
             dp[0][s] = 1;
         else
             dp[0][s] = 0;
