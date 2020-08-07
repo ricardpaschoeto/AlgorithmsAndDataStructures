@@ -10,6 +10,10 @@ This course will cover theories, including:
 
 You will practice solving computational problems, designing new algorithms, and implementing solutions efficiently (so that they run in less than a second).
 
+* Windows 10
+* Microsoft Visual Community 2019
+* C++
+
 # Week 01 - Programming Challenges
 * Sum of Two Digits
 * Maximum Pairwise Product
