@@ -40,3 +40,14 @@ You will practice solving computational problems, designing new algorithms, and 
 * Finding the Closest Pair of Points
 
 # Week 05 - Dynamic Programming 1
+* Money Change Again
+* Primitive Calculator
+* Edit Distance
+* Longest Common Subsequence of Two Sequences
+* Longest Common Subsequence of 3 Sequences
+
+# Week 06 - Dynamic Programming 2
+* Knapsack
+* Partitioning Souvenirs
+* Placing Parentheses
+
